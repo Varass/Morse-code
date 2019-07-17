@@ -1,0 +1,7918 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>MORSE</title>
+<link rel="stylesheet" type="text/css" href="Morse.css">
+
+</head>
+<body>
+
+	<h1>Translate to Morse Code</h1>
+
+	
+		<form name = "sent"  onsubmit="return ConvertText()">
+			<textarea name = "messages" id="source_text" rows="10" cols="30">Input text</textarea>
+			<br>
+			<input type="submit" class="button" id="sub" value="SUBMIT">
+		</form>
+		
+
+
+	
+		<p name = "converted1" id="demo" class="ans"></p>
+        <p name = "converted2" id="dem" class="ans"></p>
+	
+	
+	
+	<div class="audioPlay">
+		<script>var aud = document.getElementById("myAudio");</script>
+		<audio id="myAudio" controls>
+			<source src="audio/space.mp3" type="audio/mp3" class="button">  
+		</audio>
+			
+		<br><br>
+		
+		<button onclick="pauseAudio()" type="button" class="button">Pause Audio</button> 
+		<audio id="a">
+			<source src="audio/A.mp3" type="audio/mp3">
+		</audio>
+
+
+		<audio id="b">
+			<source src="audio/B.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="c">
+			<source src="audio/C.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="d">
+			<source src="audio/D.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="e">
+			<source src="audio/E.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="f">
+			<source src="audio/F.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="g">
+			<source src="audio/G.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="h">
+			<source src="audio/H.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="i">
+			<source src="audio/I.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="j">
+			<source src="audio/J.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="k">
+			<source src="audio/K.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="l">
+			<source src="audio/L.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="m">
+			<source src="audio/M.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="n">
+			<source src="audio/N.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="o">
+			<source src="audio/O.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="p">
+			<source src="audio/P.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="q">
+			<source src="audio/Q.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="r">
+			<source src="audio/R.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="s">
+			<source src="audio/S.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="t">
+			<source src="audio/T.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="u">
+			<source src="audio/U.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="v">
+			<source src="audio/V.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="w">
+			<source src="audio/W.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="x">
+			<source src="audio/X.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="y">
+			<source src="audio/Y.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="z">
+			<source src="audio/Z.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="0">
+			<source src="audio/0.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="1">
+			<source src="audio/1.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="2">
+			<source src="audio/2.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="3">
+			<source src="audio/3.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="4">
+			<source src="audio/4.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="5">
+			<source src="audio/5.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="6">
+			<source src="audio/6.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="7">
+			<source src="audio/7.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="8">
+			<source src="audio/8.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="9">
+			<source src="audio/9.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="space">
+			<source src="audio/space.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id="!">
+			<source src="audio/exclamation.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id=".">
+			<source src="audio/full_stop.mp3" type="audio/mp3">
+		</audio>
+
+		<audio id=",">
+			<source src="audio/comma.mp3" type="audio/mp3">
+		</audio>
+	
+	</div>
+	<script>
+	/*switch(str){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+		}*/
+	function pauseAudio(){
+		
+		aud.pause();
+			
+	}
+	
+	
+	
+	
+	
+	</script>
+	
+	
+	<script>
+
+	//var message = "12 3 4"; 
+
+	function ConvertText(){
+	var message = document.forms["sent"]["messages"].value;
+	var g = "";
+	var c = "";
+	for (i = 0; i < message.length; i++) {
+		var str = message.substring(i, i+1);
+  
+		switch(str){
+	    
+		case "0" :
+			g += "----- ";
+			c += "0  ----- ";
+			break;
+		case "1" :
+			g += ".---- ";
+			c += "1  .---- ";
+			break;
+		case "2" :
+			g += "..--- ";
+			c += "2 ..--- ";
+			break;
+		case "3" :
+			g += "...-- ";
+			c += "3  ...-- ";
+			break;
+		case "4" :
+			g += "....- ";
+			c += "4  ....- ";
+			break;
+		case "5" :
+			g += "..... ";
+			c += "5  ..... ";
+			break;  
+		case "6" :
+			g += "-.... ";
+			c += "6 -.... ";
+			break;
+		case "7" :
+			g += "--... ";
+			c += "7 --... ";
+			break;
+		case "8" : 
+			g += "---.. ";
+			c += "8 ---.. ";
+			break;
+		case "9" : 
+			g += "----. ";
+			c += "9 ----. ";
+			break;
+		case "a" :
+		case "A" :
+			g += ".- ";
+			c += "A .- ";
+			break;
+		case "b" :
+		case "B" :
+			g += "-... ";
+			c += "B -... ";
+			break;
+		case "c" :
+		case "C" :
+			g += "-.-. ";
+			c += "C -.-. ";
+			break;
+		case "d" :
+		case "D" :
+			g += "-.. ";
+			c += "D -.. ";
+			break;
+		case "e" :
+		case "E" :
+			g += ". ";
+			c += "E . ";
+			break;
+		case "f" :
+		case "F" :
+			g += "..-. ";
+			c += "F ..-. ";
+			break;
+		case "g" :
+		case "G" :
+			g += "--. ";
+			c += "G --. ";
+			break;
+		case "h" :
+		case "H" :
+			g += ".... ";
+			c += "H  .... ";
+			break;
+		case "i" :
+		case "I" :
+			g += ".. ";
+			c += "I .. ";
+			break;
+		case "j" :
+		case "J" :
+			g += ".--- ";
+			c += "J .--- ";
+			break;
+		case "k" :
+		case "K" :
+			g += "-.- ";
+			c += "K -.- ";
+			break;
+		case "l" :
+		case "L" :
+			g += ".-.. ";
+			c += "L .-.. ";
+			break;
+		case "m" :
+		case "M" :
+			g += "-- ";
+			c += "M -- ";
+			break;
+		case "n" :
+		case "N" :		
+			g += "-. ";
+			c += "N -. ";
+			break;
+		case "o" :
+		case "O" :
+			g += "--- ";
+			c += "O --- ";
+			break;
+		case "p" :
+		case "P" :
+			g += ".--. ";
+			c += "P .--. ";
+			break;
+		case "q" :
+		case "Q" :
+			g += "--.- ";
+			c += "Q --.- ";
+			break;
+       	case "r" :
+		case "R" :
+			g += ".-. ";
+			c += "R .-. ";
+			break;
+		case "s" :
+		case "S" :		
+			g += "... ";
+			c += "S ... ";
+			break;
+		case "t" :
+		case "T" :		
+			g += "- ";
+			c += "T - ";
+			break;
+		case "u" : 
+		case "U" :
+			g += "..- ";
+			c += "U ..- ";
+			break;
+		case "v" :
+		case "V" :
+			g += "...- ";
+			c += "V ...- ";
+			break;
+		case "w" :
+		case "W" :
+			g += ".-- ";
+			c += "W .-- ";
+			break;
+		case "x" :
+		case "X" :
+			g += "-..- ";
+			c += "X -..- ";
+			break;
+		case "y" :
+		case "Y" :
+			g += "-.-- ";
+			c += "Y -.-- ";
+			break;
+		case "z" :
+		case "Z" :
+			g += "--.. ";
+			c += "Z --.. ";
+			break;
+		case " " :
+			g += "/ ";
+		
+			break;
+		case "!" :
+			g += "-·-·-- ";
+			c += "! -·-·-- ";
+			break;
+		case "." :
+			g += "·-·-·- ";
+			c += ". ·-·-·- ";
+			break;
+		case "," :
+			g += "--··-- ";
+			c += ", --··-- ";
+			break;
+		}
+  
+		if(i < message.length - 1 && str != " "){
+			c += ","
+		}
+		
+		
+		}
+        
+        document.getElementById("demo").innerHTML = g;
+
+		document.getElementById("dem").innerHTML = c;
+		
+        aud = document.getElementById("myAudio");
+		/*var numchar = 0;
+		
+		do{
+			
+			aud.onended = function() {
+		switch(message[numchar]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		numchar++;
+		
+		};
+		
+		}while(numchar <= message.length-1);*/
+		
+		
+		
+		
+		aud.onended = function() {
+		
+		switch(message[0]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+		}
+		aud.play();
+	
+		aud.onended = function() {
+		switch(message[1]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		aud.onended = function() {
+		switch(message[2]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[3]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[4]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[5]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[6]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[7]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[8]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+				aud.onended = function() {
+		
+		switch(message[9]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+		}
+		aud.play();
+	
+		aud.onended = function() {
+		switch(message[10]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		aud.onended = function() {
+		switch(message[11]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[12]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[13]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[14]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[15]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[16]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[17]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		
+		switch(message[18]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+		}
+		aud.play();
+	
+		aud.onended = function() {
+		switch(message[19]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		aud.onended = function() {
+		switch(message[20]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[21]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[22]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[23]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[24]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[25]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[26]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+				aud.onended = function() {
+		
+		switch(message[27]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+		}
+		aud.play();
+	
+		aud.onended = function() {
+		switch(message[28]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		aud.onended = function() {
+		switch(message[29]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[30]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[31]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[32]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[33]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[34]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		aud.onended = function() {
+		switch(message[35]){
+	    
+		case "0" :
+			aud = document.getElementById("0");
+			
+			break;
+		case "1" :
+			aud = document.getElementById("1");
+			
+			break;
+		case "2" :
+			aud = document.getElementById("2");
+			
+			break;
+		case "3" :
+			aud = document.getElementById("3");
+			
+			break;
+		case "4" :
+			aud = document.getElementById("4");
+			
+			break;
+		case "5" :
+			aud = document.getElementById("5");
+			
+			break;  
+		case "6" :
+			aud = document.getElementById("6");
+			
+			break;
+		case "7" :
+			aud = document.getElementById("7");
+			
+			break;
+		case "8" : 
+			aud = document.getElementById("8");
+			
+			break;
+		case "9" : 
+			aud = document.getElementById("9");
+			
+			break;
+		case "a" :
+		case "A" :
+			aud = document.getElementById("a");
+			
+			break;
+		case "b" :
+		case "B" :
+			aud = document.getElementById("b");
+			
+			break;
+		case "c" :
+		case "C" :
+			aud = document.getElementById("c");
+			
+			break;
+		case "d" :
+		case "D" :
+			aud = document.getElementById("d");
+			
+			break;
+		case "e" :
+		case "E" :
+			aud = document.getElementById("e");
+			
+			break;
+		case "f" :
+		case "F" :
+			aud = document.getElementById("f");
+			
+			break;
+		case "g" :
+		case "G" :
+			aud = document.getElementById("g");
+			
+			break;
+		case "h" :
+		case "H" :
+			aud = document.getElementById("h");
+			
+			break;
+		case "i" :
+		case "I" :
+			aud = document.getElementById("i");
+			
+			break;
+		case "j" :
+		case "J" :
+			aud = document.getElementById("j");
+			
+			break;
+		case "k" :
+		case "K" :
+			aud = document.getElementById("k");
+			
+			break;
+		case "l" :
+		case "L" :
+			aud = document.getElementById("l");
+			
+			break;
+		case "m" :
+		case "M" :
+			aud = document.getElementById("m");
+			
+			break;
+		case "n" :
+		case "N" :		
+			aud = document.getElementById("n");
+			
+			break;
+		case "o" :
+		case "O" :
+			aud = document.getElementById("o");
+			
+			break;
+		case "p" :
+		case "P" :
+			aud = document.getElementById("p");
+			
+			break;
+		case "q" :
+		case "Q" :
+			aud = document.getElementById("q");
+			
+			break;
+       	case "r" :
+		case "R" :
+			aud = document.getElementById("r");
+			
+			break;
+		case "s" :
+		case "S" :		
+			aud = document.getElementById("s");
+			
+			break;
+		case "t" :
+		case "T" :		
+			aud = document.getElementById("t");
+			
+			break;
+		case "u" : 
+		case "U" :
+			aud = document.getElementById("u");
+			
+			break;
+		case "v" :
+		case "V" :
+			aud = document.getElementById("v");
+			
+			break;
+		case "w" :
+		case "W" :
+			aud = document.getElementById("w");
+			
+			break;
+		case "x" :
+		case "X" :
+			aud = document.getElementById("x");
+			
+			break;
+		case "y" :
+		case "Y" :
+			aud = document.getElementById("y");
+			
+			break;
+		case "z" :
+		case "Z" :
+			aud = document.getElementById("z");
+			
+			break;
+		case " " :
+			aud = document.getElementById("space");
+			
+			break;
+		case "!" :
+			aud = document.getElementById("!");
+			
+			break;
+		case "." :
+			aud = document.getElementById(".");
+			
+			break;
+		case "," :
+			aud = document.getElementById(",");
+			
+			break;
+			
+		default :
+			aud = document.getElementById("space");
+		}
+		aud.play();
+		
+		
+		
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		};
+		
+        return false;
+	}
+	
+    
+	//action="/action_page.php"
+	//document.getElementById("demo").innerHTML = (g);
+
+	//document.getElementById("dem").innerHTML = (c);
+
+
+	</script>
+
+	<footer>
+  <p class="footer">Posted by: MORSE</p>
+  <p class="footer">Contact information: <a href="mailto:someone@example.com">MORSE@example.com</a>.</p>
+	</footer>
+	</body>
+</html>
